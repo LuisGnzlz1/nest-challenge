@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  challengeapp:
+    depends_on:
+      - db
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: challenge-docker
+    container_name: challengeapp
+    restart: always # reiniciar el contenedor si se detiene
+    ports:
+      - "${PORT}:${PORT}"
+    environment:
+      MONGODB: ${MONGODB}
+      PORT: ${PORT}
+  db:
+    image: mongo:5.0.16-focal
+    container_name: mongo-challenge-db
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGODB_DATABASE: nest-challenge
+    volumes:
+      - ./mongo:/data/db

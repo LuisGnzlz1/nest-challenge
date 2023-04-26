@@ -7,6 +7,6 @@ services:
     ports:
       - 27017:27017
     environment:
-      MONGODB_DATABASE: users
+      MONGODB_DATABASE: nest-challenge
     volumes:
       - ./mongo:/data/db
