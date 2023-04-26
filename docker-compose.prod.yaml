@@ -9,7 +9,7 @@ services:
       dockerfile: Dockerfile
     image: challenge-docker
     container_name: challengeapp
-    restart: always # reiniciar el contenedor si se detiene
+    restart: always
     ports:
       - "${PORT}:${PORT}"
     environment:
