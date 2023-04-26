@@ -3,6 +3,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { UserService } from './user.service';
 import { UserController } from './user.controller';
 import { User, UserSchema } from './entities/user.entity';
+import { HttpModule } from '@nestjs/axios';
 
 @Module({
   controllers: [UserController],
@@ -14,6 +15,7 @@ import { User, UserSchema } from './entities/user.entity';
         schema: UserSchema,
       },
     ]),
+    HttpModule,
   ],
 })
 export class UserModule {}
